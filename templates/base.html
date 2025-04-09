@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Eryndor RPG{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('main.dashboard') }}">Início</a>
+            {% if current_user.is_authenticated %}
+                <span>Bem-vindo, {{ current_user.nome }}</span>
+                <a href="{{ url_for('auth.logout') }}">Sair</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now.year }} - Eryndor: Ecos do Éter</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

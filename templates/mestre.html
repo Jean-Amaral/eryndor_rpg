@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Painel do Mestre - {{ campanha.titulo }}{% endblock %}
+
+{% block content %}
+<h2>Painel do Mestre: {{ campanha.titulo }}</h2>
+<p>{{ campanha.descricao }}</p>
+
+<h3>Fichas de Jogadores</h3>
+<ul>
+    {% for ficha in fichas %}
+        <li>
+            <a href="{{ url_for('main.ver_ficha', ficha_id=ficha.id) }}">
+                {{ ficha.nome_personagem }} - {{ ficha.classe }} ({{ ficha.nivel }})
+            </a>
+        </li>
+    {% else %}
+        <li>Sem fichas cadastradas nesta campanha.</li>
+    {% endfor %}
+</ul>
+
+<h3>Registrar Moralidade</h3>
+<form method="POST" action="{{ url_for('mestre.registrar_moralidade', campanha_id=campanha.id) }}">
+    <label for="ponto">Escolha um ponto:</label>
+    <select name="ponto" id="ponto" required>
+        <option value="luz">Luz</option>
+        <option value="sombra">Sombra</option>
+        <option value="cinzas">Cinzas</option>
+    </select>
+    <button type="submit">Registrar</button>
+</form>
+
+<h3>Histórico de Moralidade</h3>
+<ul>
+    {% for log in moralidades %}
+        <li>{{ log.data.strftime('%d/%m/%Y %H:%M') }} - {{ log.ponto|capitalize }}</li>
+    {% else %}
+        <li>Nenhum ponto registrado ainda.</li>
+    {% endfor %}
+</ul>
+
+<h3>Jogadores Online</h3>
+<ul id="lista-jogadores-online">
+    <li>Carregando jogadores online...</li>
+</ul>
+{% endblock %}
+
+{% block scripts %}
+<!-- Variáveis globais para SocketIO -->
+<script>
+    window.usuarioAtual = "{{ current_user.nome }}";
+    window.usuarioId = {{ current_user.id }};
+    window.campanhaAtualId = {{ campanha.id }};
+</script>
+
+<script src="{{ url_for('static', filename='js/socket.js') }}"></script>
+{% endblock %}

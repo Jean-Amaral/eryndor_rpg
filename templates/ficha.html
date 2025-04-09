@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Ficha: {{ ficha.nome_personagem }}{% endblock %}
+
+{% block content %}
+<h2>Ficha de Personagem</h2>
+
+<p><strong>Nome:</strong> {{ ficha.nome_personagem }}</p>
+<p><strong>Classe:</strong> {{ ficha.classe }}</p>
+<p><strong>Nível:</strong> {{ ficha.nivel }}</p>
+<p><strong>Raça:</strong> {{ ficha.raca }}</p>
+<p><strong>Alinhamento:</strong> {{ ficha.alinhamento }}</p>
+
+<h3>Atributos</h3>
+<ul>
+    <li>Força: {{ ficha.forca }}</li>
+    <li>Destreza: {{ ficha.destreza }}</li>
+    <li>Constituição: {{ ficha.constituicao }}</li>
+    <li>Inteligência: {{ ficha.inteligencia }}</li>
+    <li>Sabedoria: {{ ficha.sabedoria }}</li>
+    <li>Carisma: {{ ficha.carisma }}</li>
+</ul>
+
+<h3>Status</h3>
+<ul>
+    <li>Vida Máxima: {{ ficha.vida_maxima }}</li>
+    <li>Mana Máxima: {{ ficha.mana_maxima }}</li>
+    <li>Experiência: {{ ficha.experiencia }}</li>
+</ul>
+
+<h3>Rolagem de Dados</h3>
+<p>Clique para rolar um dado:</p>
+<div class="rolagem-dados">
+    <button onclick="rolar('1d4')">d4</button>
+    <button onclick="rolar('1d6')">d6</button>
+    <button onclick="rolar('1d8')">d8</button>
+    <button onclick="rolar('1d10')">d10</button>
+    <button onclick="rolar('1d12')">d12</button>
+    <button onclick="rolar('1d20')">d20</button>
+</div>
+
+<h3>Histórico de Rolagens</h3>
+<ul id="log-rolagens">
+    <!-- Preenchido em tempo real -->
+</ul>
+{% endblock %}
+
+{% block scripts %}
+<!-- Variáveis globais exigidas pelo socket.js -->
+<script>
+    window.usuarioAtual = "{{ current_user.nome }}";
+    window.usuarioId = {{ current_user.id }};
+</script>
+
+<script src="{{ url_for('static', filename='js/socket.js') }}"></script>
+{% endblock %}

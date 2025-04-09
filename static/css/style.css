@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #f4f4f4;
+}
+
+header nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+header nav a {
+    color: #eee;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    color: darkred;
+}
+
+.rolagem-dados button {
+    margin-right: 5px;
+    padding: 6px 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+ul#log-rolagens {
+    list-style: square;
+    padding-left: 20px;
+}

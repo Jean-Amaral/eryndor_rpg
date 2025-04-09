@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Painel - Eryndor{% endblock %}
+
+{% block content %}
+<h2>Painel do Jogador</h2>
+
+<h3>Suas Campanhas (como Mestre)</h3>
+<ul>
+    {% for campanha in campanhas %}
+        <li>
+            <a href="{{ url_for('mestre.painel_mestre', campanha_id=campanha.id) }}">
+                {{ campanha.titulo }}
+            </a>
+        </li>
+    {% else %}
+        <li>Você ainda não criou nenhuma campanha.</li>
+    {% endfor %}
+</ul>
+
+<h4>Criar Nova Campanha</h4>
+<form method="POST" action="{{ url_for('main.criar_campanha') }}">
+    <label>Título:</label><br>
+    <input type="text" name="titulo" required><br>
+    <label>Descrição:</label><br>
+    <textarea name="descricao"></textarea><br>
+    <button type="submit">Criar Campanha</button>
+</form>
+
+<hr>
+
+<h3>Suas Fichas (como Jogador)</h3>
+<ul>
+    {% for ficha in fichas %}
+        <li>
+            <a href="{{ url_for('main.ver_ficha', ficha_id=ficha.id) }}">
+                {{ ficha.nome_personagem }} (Nível {{ ficha.nivel }}) - {{ ficha.classe }}
+            </a>
+        </li>
+    {% else %}
+        <li>Você ainda não criou nenhuma ficha.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block scripts %}
+<!-- Definições necessárias para integração com socket.js -->
+<script>
+    window.usuarioAtual = "{{ current_user.nome }}";
+    window.usuarioId = {{ current_user.id }};
+</script>
+
+<script src="{{ url_for('static', filename='js/socket.js') }}"></script>
+{% endblock %}
