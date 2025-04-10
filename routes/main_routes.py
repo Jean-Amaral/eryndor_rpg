@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_required, current_user
 from extensions import db
-from models import Campanha, Ficha
+from models import Campanha, Ficha, HistoricoRolagem
 
 main_bp = Blueprint('main', __name__)
 
@@ -39,8 +39,10 @@ def ver_campanha(campanha_id):
 @login_required
 def ver_ficha(ficha_id):
     ficha = Ficha.query.get_or_404(ficha_id)
+    # Verifica acesso: se o usuário não é o dono da ficha nem o mestre da campanha, bloqueia o acesso
     if ficha.jogador_id != current_user.id and ficha.campanha.mestre_id != current_user.id:
         flash('Acesso negado.')
         return redirect(url_for('main.dashboard'))
-
-    return render_template('ficha.html', ficha=ficha)
+    # Carrega o histórico de rolagens, ordenado por data decrescente
+    logs = HistoricoRolagem.query.order_by(HistoricoRolagem.data.desc()).all()
+    return render_template('ficha.html', ficha=ficha, logs=logs)

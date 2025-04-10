@@ -208,6 +208,7 @@ secrets.yml
 *.rdb
 *.dump
 *.bak
+classes.json
 
 # --- Arquivos de Documentação Gerada ---
 _build/
