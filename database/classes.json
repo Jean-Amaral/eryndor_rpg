@@ -1,0 +1,1174 @@
+{
+  "classes": [
+    {
+      "nome": "Cavaleiro do Éter",
+      "descricao": "Guerreiro blindado que canaliza a energia ambiente do Éter (ou uma versão mais controlada dele) para fortalecer seus ataques e defesas, protegendo a si mesmo e seus aliados. Linha de frente, Tank/Suporte.",
+      "aparencia": "Armadura de placas completa, mas com veios luminosos (azul claro, branco ou dourado) que pulsam com energia. Pode ter um escudo que projeta barreiras de energia.",
+      "personalidade": "Disciplinado, protetor, estoico, com forte senso de dever e honra. Pode ser cauteloso com tecnologia desconhecida, mas vê o Éter controlado como uma ferramenta necessária.",
+      "motivacao": "Proteger os inocentes, manter a ordem, conter as forças caóticas do Éter Fracturado.",
+      "lore": "Membros de ordens antigas ou novas que redescobriram/adaptaram técnicas Precursoras para interagir defensivamente com o Éter. Muitas vezes ligados a reinos ou cidades que buscam estabilidade. Sir Aldric pode ser um exemplo.",
+      "atributos_iniciais": {
+        "FOR": 15,
+        "CON": 14,
+        "CAR": 13,
+        "SAB": 12,
+        "DES": 10,
+        "INT": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d10",
+        "pv_inicial": "10 + Mod CON",
+        "pm_inicial": "10 + Mod CAR",
+        "pm_por_nivel": "5 + Mod CAR"
+      },
+      "proficiencias": {
+        "armaduras": "Todas as armaduras e escudos",
+        "armas": "Armas Simples e Marciais",
+        "saves": ["CON", "CAR"]
+      },
+      "armas": {
+        "permitidas": ["Espadas Longas/Bastardas (incluindo versões de energia)", "Maças/Martelos de Guerra", "Lanças (incluindo de plasma)", "Escudos (foco)"],
+        "proibidas": ["Armas de haste exóticas", "Armas de fogo complexas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Golpe Energizado",
+          "tipo": "Ação",
+          "custo": "2 PM",
+          "efeito": "Próximo ataque corpo a corpo causa +1d6 de dano energético e o alvo tem desvantagem na próxima rolagem de ataque antes do fim do seu próximo turno."
+        },
+        {
+          "nome": "Égis de Éter",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Ganha +2 de CA até o início do seu próximo turno."
+        },
+        {
+          "nome": "Baluarte Protetor",
+          "tipo": "Reação",
+          "custo": "4 PM",
+          "efeito": "Quando um aliado a até 3m de você é atingido por um ataque, você pode usar sua reação para impor desvantagem nessa rolagem de ataque."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Santuário de Energia",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Cria uma cúpula de energia de 5m de raio centrada em você por 1 minuto. Aliados dentro da cúpula ganham +2 CA e Vantagem em Testes de Resistência contra efeitos de Éter/Energia. Inimigos que entram ou começam seu turno na cúpula sofrem 2d8 de dano energético."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Aura Revigorante",
+          "efeito": "Aliados que começam o turno a 1,5m de você recuperam 1 PV."
+        },
+        {
+          "nome": "Escudo Ricocheteador",
+          "efeito": "Ao usar Égis de Éter com sucesso (se o ataque errar por causa do bônus de CA), causa 1d4 dano energético ao atacante."
+        },
+        {
+          "nome": "Presença Imponente",
+          "efeito": "Ganha proficiência em Intimidação."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Golpe Energizado": ["Aumentar dano (+1d6 por ponto)", "Aumentar duração da desvantagem"],
+        "Égis de Éter": ["Aumentar bônus de CA (+1 por ponto)", "Reduzir custo de PM"],
+        "Baluarte Protetor": ["Aumentar alcance (ex: 9m)", "Permitir usar em si mesmo"],
+        "Santuário de Energia": ["Aumentar raio", "Aumentar bônus de CA/Saves", "Aumentar dano a inimigos"]
+      }
+    },
+    {
+      "nome": "Tecnomante",
+      "descricao": "Estudioso arcano que mescla princípios mágicos com tecnologia Precursora, manipulando energia, dados e máquinas através de fórmulas complexas e dispositivos focais. Ranged DPS/Controle.",
+      "aparencia": "Robes ou trajes funcionais com circuitos integrados, luvas com projetores holográficos, óculos com HUDs, cajados tecnológicos ou orbes flutuantes.",
+      "personalidade": "Curioso, analítico, às vezes arrogante ou distraído. Fascinado por conhecimento e poder tecnológico. Pode ver o Éter como uma fonte de energia perigosa, mas útil se compreendida. Lira Kaelis é um exemplo.",
+      "motivacao": "Desvendar os segredos dos Precursores, dominar a fusão de magia e tecnologia, provar sua superioridade intelectual.",
+      "lore": "Surgiram de guildas de magos ou círculos de eruditos que tiveram acesso a ruínas ou artefatos Precursores. Muitas vezes independentes ou afiliados a instituições de pesquisa como as de Atheria.",
+      "atributos_iniciais": {
+        "INT": 15,
+        "CON": 14,
+        "DES": 13,
+        "SAB": 12,
+        "CAR": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d6",
+        "pv_inicial": "6 + Mod CON",
+        "pm_inicial": "15 + Mod INT",
+        "pm_por_nivel": "8 + Mod INT"
+      },
+      "proficiencias": {
+        "armaduras": "Nenhuma armadura ou escudo",
+        "armas": "Adagas, Cajados, Pistolas Laser Leves",
+        "saves": ["INT", "SAB"]
+      },
+      "armas": {
+        "permitidas": ["Cajados Tecnológicos (foco)", "Orbes de Dados", "Pistolas Laser Leves", "Adagas"],
+        "proibidas": ["Armas marciais", "Armaduras", "Escudos"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Raio Arcano-Tecnológico",
+          "tipo": "Ação",
+          "custo": "2 PM",
+          "efeito": "Ataque à distância (Rolagem de ataque mágico vs CA). Alcance 18m. Causa 1d10 + Mod INT de dano energético."
+        },
+        {
+          "nome": "Invocar Drone Vigia",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Invoca um pequeno drone flutuante por 1 hora. Ele pode se mover 9m por turno, tem CA 12, 5 PV e pode fazer uma ação de Ajudar ou transmitir o que vê/ouve para você. Só pode ter um drone ativo."
+        },
+        {
+          "nome": "Hackear Máquina",
+          "tipo": "Ação",
+          "custo": "5 PM",
+          "efeito": "Tenta desativar ou controlar um construto ou dispositivo tecnológico a até 9m. O alvo faz um Save de INT (CD do Tecnomante). Falha: Desativado por 1 minuto ou segue um comando simples (atacar alvo específico, abrir, etc.) no próximo turno. Sucesso: Sem efeito."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Tempestade de Dados Corrompidos",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Escolhe um ponto a até 30m. Uma tempestade de 6m de raio surge por 1 minuto. Inimigos na área têm desvantagem em ataques e Saves de INT. No início do turno do Tecnomante, ele pode usar uma Ação Bônus para causar 3d8 de dano psíquico/energético a uma criatura na tempestade."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Fluxo de Mana Eficiente",
+          "efeito": "Reduz o custo de PM do Raio Arcano em 1."
+        },
+        {
+          "nome": "Drone Aprimorado",
+          "efeito": "Drone Vigia ganha +5 PV e pode usar uma pequena descarga elétrica (1d4 dano, Ação)."
+        },
+        {
+          "nome": "Protocolos de Defesa",
+          "efeito": "Aprende a usar Armadura Leve."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Raio Arcano": ["Aumentar dano (+1d10 por ponto)", "Aumentar alcance"],
+        "Invocar Drone": ["Drone fica mais resistente (CA/PV)", "Ganha novas ações (pulso EMP, escudo pequeno)"],
+        "Hackear Máquina": ["Aumentar duração do efeito", "Afetar construtos mais resistentes", "Permitir controle mais complexo"],
+        "Tempestade de Dados": ["Aumentar raio/duração", "Aumentar dano da Ação Bônus", "Adicionar mais efeitos negativos (lentidão?)"]
+      }
+    },
+    {
+      "nome": "Assassino Espectral",
+      "descricao": "Mestre da furtividade e da eliminação rápida, usando tecnologia de camuflagem, lâminas silenciosas e dispositivos de fase para se mover sem ser detectado e atacar pontos vitais. Melee DPS/Infiltração.",
+      "aparencia": "Trajes leves e escuros, muitas vezes com capuzes ou máscaras. Implantes visíveis podem incluir módulos de camuflagem óptica ou emissores de fase nos pulsos/pés.",
+      "personalidade": "Silencioso, calculista, paciente, profissional. Pode ser leal a um código pessoal ou a quem o contrata. Geralmente pragmático. Sylra é um exemplo.",
+      "motivacao": "Lucro, vingança, pertencer a uma organização secreta, o desafio da infiltração perfeita.",
+      "lore": "Surgiram das sombras das cidades tecnologicamente avançadas ou de guildas de ladrões que adaptaram tecnologia Precursora para suas artes. Podem ser espiões, mercenários ou vigilantes sombrios.",
+      "atributos_iniciais": {
+        "DES": 15,
+        "INT": 14,
+        "CON": 13,
+        "CAR": 12,
+        "SAB": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d8",
+        "pv_inicial": "8 + Mod CON",
+        "pm_inicial": "12 + Mod INT",
+        "pm_por_nivel": "6 + Mod INT"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves",
+        "armas": "Armas Simples, Espadas Curtas, Lâminas Monomoleculares, Pistolas Silenciadas, Ferramentas de Ladrão",
+        "saves": ["DES", "INT"]
+      },
+      "armas": {
+        "permitidas": ["Adagas (Vibratórias, de Energia)", "Espadas Curtas (Monomoleculares)", "Pistolas com Silenciador", "Bestas de Mão Tecnológicas"],
+        "proibidas": ["Armaduras Médias/Pesadas", "Escudos", "Armas Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Ataque Furtivo",
+          "tipo": "Passivo/Ação Bônus",
+          "custo": "Nenhum",
+          "efeito": "Uma vez por turno, se tiver Vantagem no ataque ou um aliado estiver adjacente ao alvo, causa +1d6 de dano extra com um ataque de arma baseado em Destreza. (Dano aumenta em níveis mais altos: 2d6 Nv5, 3d6 Nv9, etc.). Pode usar Ação Bônus para se Esconder ou Disparar."
+        },
+        {
+          "nome": "Passo Fantasma",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Fica Invisível até atacar, usar uma habilidade ofensiva ou até o final do seu próximo turno."
+        },
+        {
+          "nome": "Lâmina Perfurante",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Faz um ataque corpo a corpo. Se acertar, ignora resistências a dano físico do alvo e causa +1d8 de dano."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Dança das Sombras",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Curto/Longo",
+        "efeito": "Por 1 minuto, você pode usar Passo Fantasma como uma ação livre no seu turno e seus ataques furtivos causam +2d6 de dano extra. Você pode se mover através de espaços ocupados por inimigos."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Mestre das Fechaduras",
+          "efeito": "Ganha proficiência dobrada com Ferramentas de Ladrão."
+        },
+        {
+          "nome": "Veneno Sintético",
+          "efeito": "Pode aplicar um veneno simples (1d6 dano de veneno extra no acerto, Con Save CD 12 para negar) a uma arma como Ação Bônus (3 usos/descanso longo)."
+        },
+        {
+          "nome": "Movimento Silencioso",
+          "efeito": "Vantagem em testes de Furtividade relacionados a movimento."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Ataque Furtivo": ["Aumentar o dado de dano base (d8s em vez de d6s)"],
+        "Passo Fantasma": ["Reduzir custo", "Permitir movimento extra ao ativar"],
+        "Lâmina Perfurante": ["Aumentar dano extra", "Adicionar efeito de sangramento"],
+        "Dança das Sombras": ["Aumentar bônus de dano furtivo", "Ganhar CA bônus durante a dança"]
+      }
+    },
+    {
+      "nome": "Sentinela Ferro-Frio",
+      "descricao": "Um baluarte ambulante de metal e poder de fogo. Especializado em armaduras pesadas modificadas e armas de longo alcance devastadoras, capaz de suprimir inimigos e resistir a dano pesado. Ranged DPS/Tank Secundário.",
+      "aparencia": "Armadura de batalha completa, muitas vezes volumosa e com placas extras. Carrega armas grandes e intimidadoras (canhões, metralhadoras pesadas, lança-foguetes). Pode ter visores reforçados ou sistemas de mira integrados.",
+      "personalidade": "Forte, direto, confiável, talvez um pouco lento para reagir socialmente, mas rápido no gatilho. Protege ferozmente sua posição e seus companheiros.",
+      "motivacao": "Defender seu povo/território, a emoção do combate pesado, cumprir ordens de um comando militar.",
+      "lore": "Podem ser soldados de exércitos tecnologicamente avançados (como o de Darius III, mas talvez renegados), guardas de caravanas de sucata que se aprimoraram, ou indivíduos que encontraram e restauraram armaduras de batalha Precursoras.",
+      "atributos_iniciais": {
+        "FOR": 15,
+        "CON": 14,
+        "DES": 12,
+        "INT": 10,
+        "SAB": 10,
+        "CAR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d10",
+        "pv_inicial": "10 + Mod CON",
+        "pm_inicial": "8 + Mod CON",
+        "pm_por_nivel": "4 + Mod CON"
+      },
+      "proficiencias": {
+        "armaduras": "Todas as armaduras e escudos",
+        "armas": "Armas Simples e Marciais, Armas de Fogo Pesadas",
+        "saves": ["FOR", "CON"]
+      },
+      "armas": {
+        "permitidas": ["Canhões de Plasma", "Rifles Laser Pesados", "Metralhadoras Rotatórias", "Lança-Granadas/Foguetes", "Mauls Tecnológicos"],
+        "proibidas": ["Armas que requerem sutileza (Lâminas Monomoleculares, etc.)"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Tiro Supressivo",
+          "tipo": "Ação",
+          "custo": "2 PM/Munição",
+          "efeito": "Escolhe um alvo a até alcance da arma. O alvo deve fazer um Save de DES (CD Baseada em DES ou FOR?). Falha: Velocidade reduzida pela metade e desvantagem em ataques até o fim do seu próximo turno. Sucesso: Sem efeito. Requer arma de Fogo Pesada."
+        },
+        {
+          "nome": "Blindagem Reforçada",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Ganha Resistência a dano físico (cortante, perfurante, concussão) de fontes não-mágicas/não-energéticas até o início do seu próximo turno."
+        },
+        {
+          "nome": "Granada de Fragmentação",
+          "tipo": "Ação",
+          "custo": "4 PM/Munição (Limitado: ex, Bônus Prof. por Descanso Longo)",
+          "efeito": "Arremessa uma granada a até 18m. Explosão de 3m de raio. Todos na área fazem Save de DES (CD do Sentinela). Falha: 3d6 dano perfurante. Sucesso: Metade do dano."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Barragem Aniquiladora",
+        "tipo": "Ação",
+        "custo": "15 PM/Munição Especial",
+        "cooldown": "Descanso Longo",
+        "efeito": "Requer arma de Fogo Pesada. Faz uma série de ataques devastadores em linha reta de 1,5m de largura e 18m de comprimento. Todos na linha fazem Save de DES (CD do Sentinela). Falha: 8d8 dano energético/perfurante. Sucesso: Metade do dano. O terreno na linha pode se tornar difícil."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Arsenal Portátil",
+          "efeito": "Aprende a fabricar/carregar mais tipos de granadas (fumaça, sônica)."
+        },
+        {
+          "nome": "Postura Inabalável",
+          "efeito": "Vantagem em Saves contra ser derrubado ou movido contra sua vontade enquanto em armadura pesada."
+        },
+        {
+          "nome": "Sistema de Mira",
+          "efeito": "Ignora cobertura parcial ao atacar com armas de fogo pesadas."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Tiro Supressivo": ["Aumentar CD", "Impor penalidade de ataque adicional"],
+        "Blindagem Reforçada": ["Aumentar duração", "Adicionar resistência a outro tipo de dano (fogo?)"],
+        "Granada de Fragmentação": ["Aumentar dano (+1d6 por ponto)", "Aumentar raio"],
+        "Barragem Aniquiladora": ["Aumentar dano", "Aumentar largura/comprimento da linha", "Deixar terreno perigoso (fogo, energia residual)"]
+      }
+    },
+    {
+      "nome": "Bio-Xamã",
+      "descricao": "Canalizador de energia vital e manipulador de biotecnologia orgânica. Pode curar ferimentos, fortalecer aliados com mutações controladas e comandar flora e fauna alteradas ou sintéticas. Suporte/Cura/Controle.",
+      "aparencia": "Roupas feitas de materiais orgânicos tecno-integrados (couro bio-luminescente, madeira viva tecida). Adornos de ossos, cristais e implantes biotecnológicos. Cajados vivos ou totens simbióticos.",
+      "personalidade": "Calmo, empático, conectado com a natureza (mesmo a artificial). Pode ser desconfiado de tecnologia puramente mecânica. Vê o Éter como uma força corruptora da vida, mas alguns podem se sentir tentados a estudá-lo (como Korvax, antes de enlouquecer).",
+      "motivacao": "Preservar o equilíbrio natural (ou criar um novo), curar os doentes e feridos, entender a conexão entre vida e energia/tecnologia.",
+      "lore": "Descendentes de tradições druídicas ou xamânicas que se adaptaram à presença da tecnologia Precursora e do Éter, aprendendo a influenciar ou criar formas de vida bio-tecnológicas. Podem viver em enclaves isolados ou tentar integrar suas práticas nas cidades.",
+      "atributos_iniciais": {
+        "SAB": 15,
+        "CON": 14,
+        "CAR": 13,
+        "INT": 12,
+        "DES": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d8",
+        "pv_inicial": "8 + Mod CON",
+        "pm_inicial": "14 + Mod SAB",
+        "pm_por_nivel": "7 + Mod SAB"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves e Médias (não-metálicas), Escudos (de madeira/osso/bio-polímero)",
+        "armas": "Armas Simples, Foices, Bordões, Kit de Herbalismo Bio-Tec",
+        "saves": ["SAB", "CAR"]
+      },
+      "armas": {
+        "permitidas": ["Cajados/Bordões (vivos ou tecnológicos)", "Foices (incluindo versões energéticas)", "Dardos com toxinas/soros", "Clavas de Osso Reforçado"],
+        "proibidas": ["Armaduras Pesadas", "Armas Marciais Metálicas complexas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Toque Restaurador",
+          "tipo": "Ação",
+          "custo": "2 PM por dado",
+          "efeito": "Toca uma criatura e restaura 1d8 PV por cada 2 PM gastos (máximo de dados igual ao Bônus de Proficiência)."
+        },
+        {
+          "nome": "Mutação Benigna",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Toca um aliado voluntário. Por 1 minuto, o alvo ganha Vantagem em Saves de FOR ou DES (à escolha do Xamã)."
+        },
+        {
+          "nome": "Vinhas Constritoras",
+          "tipo": "Ação",
+          "custo": "5 PM",
+          "efeito": "Vinhas bio-energéticas brotam do chão num raio de 3m em um ponto a até 18m. A área se torna Terreno Difícil. Uma criatura que começa o turno ou entra na área deve fazer Save de FOR (CD do Xamã) ou fica Agarrada até o início do seu próximo turno."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Avatar da Selva Primeva",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Por 1 minuto, você se transforma parcialmente, ganhando CA+2, resistência a dano de veneno e necrótico, e seus ataques desarmados causam 1d10+FOR dano mágico. Além disso, você pode usar Toque Restaurador como Ação Bônus."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Comunhão com a Natureza (Tecno-Orgânica)",
+          "efeito": "Vantagem em testes de Sobrevivência e Trato com Animais (mesmo os bio-modificados)."
+        },
+        {
+          "nome": "Cultivar Remédios",
+          "efeito": "Durante um Descanso Curto, pode criar 1d4 doses de um antídoto simples ou poção de cura menor (2d4+2 PV)."
+        },
+        {
+          "nome": "Escudo Simbiótico",
+          "efeito": "Quando usa um escudo, pode usar sua Reação para dar +1 CA a um aliado adjacente por 1 rodada."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Toque Restaurador": ["Aumentar o dado de cura (d10)", "Permitir cura à distância (curta)"],
+        "Mutação Benigna": ["Aumentar duração", "Permitir aplicar a si mesmo", "Oferecer outras vantagens (CON, INT?)"],
+        "Vinhas Constritoras": ["Aumentar raio/duração", "Vinhas causam pequeno dano ao agarrar"],
+        "Avatar da Selva Primeva": ["Aumentar bônus de CA", "Ganhar mais resistências", "Melhorar ataque desarmado"]
+      }
+    },
+    {
+      "nome": "Ceifador Cinético",
+      "descricao": "Combatente ágil que manipula campos de energia cinética para aumentar sua velocidade, potência de impacto e criar lâminas ou barreiras de força pura. Melee DPS/Mobilidade.",
+      "aparencia": "Trajes leves e aerodinâmicos, talvez com capacitores ou geradores de campo visíveis nos braços, pernas ou costas. Não costuma usar armadura pesada. Pode manifestar armas de energia cinética translúcida.",
+      "personalidade": "Energético, rápido, talvez impulsivo ou focado na perfeição do movimento. Vive o momento, adora a velocidade e o impacto.",
+      "motivacao": "Superar seus limites físicos, a emoção do combate de alta velocidade, proteger algo com sua rapidez e força.",
+      "lore": "Podem ser resultado de experimentos com tecnologia de movimento Precursora, monges que adaptaram suas técnicas a fontes de energia cinética, ou atletas de combate de arenas futuristas.",
+      "atributos_iniciais": {
+        "DES": 15,
+        "FOR": 14,
+        "CON": 13,
+        "SAB": 12,
+        "INT": 10,
+        "CAR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d8",
+        "pv_inicial": "8 + Mod CON",
+        "pm_inicial": "12 + Mod DES",
+        "pm_por_nivel": "6 + Mod DES"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves",
+        "armas": "Armas Simples e Marciais que usem DES (ex: Espadas Curtas, Foices, Manoplas)",
+        "saves": ["FOR", "DES"]
+      },
+      "armas": {
+        "permitidas": ["Manoplas Energizadas", "Lâminas Cinéticas (manifestadas)", "Tonfas", "Nunchaku Tecnológicos", "Bumerangues de Energia"],
+        "proibidas": ["Armaduras Médias/Pesadas", "Escudos", "Armas de Fogo Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Golpe Cinético",
+          "tipo": "Ação",
+          "custo": "2 PM",
+          "efeito": "Faz um ataque corpo a corpo. Se acertar, causa +1d6 de dano de força (concussão) e empurra o alvo 1,5m para trás."
+        },
+        {
+          "nome": "Impulso Veloz",
+          "tipo": "Ação Bônus",
+          "custo": "2 PM",
+          "efeito": "Sua velocidade de movimento aumenta em 3m até o final do turno, e seu movimento não provoca ataques de oportunidade."
+        },
+        {
+          "nome": "Barreira de Impacto",
+          "tipo": "Reação",
+          "custo": "4 PM",
+          "efeito": "Quando é alvo de um ataque, pode usar sua reação para ganhar +3 CA contra esse ataque. Se o ataque errar, o atacante (se corpo a corpo) sofre 1d6 dano de força."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Singularidade Cinética",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Por 1 minuto, seus ataques corpo a corpo causam +1d10 dano de força extra. Você pode usar Impulso Veloz sem custo de PM e pode se mover pelas paredes e superfícies líquidas como se fossem chão sólido."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Defletor Cinético",
+          "efeito": "Aprende a usar Barreira de Impacto contra ataques à distância (projéteis físicos)."
+        },
+        {
+          "nome": "Acrobata Experiente",
+          "efeito": "Ganha proficiência em Acrobacia. Vantagem em testes para evitar ser agarrado."
+        },
+        {
+          "nome": "Punhos de Aço",
+          "efeito": "Seus ataques desarmados causam 1d6 dano de força."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Golpe Cinético": ["Aumentar dano (+1d6 por ponto)", "Aumentar distância de empurrão"],
+        "Impulso Veloz": ["Aumentar bônus de velocidade", "Permitir escalar melhor"],
+        "Barreira de Impacto": ["Aumentar bônus de CA", "Aumentar dano de ricochete"],
+        "Singularidade Cinética": ["Aumentar bônus de dano", "Ganhar voo limitado durante o efeito"]
+      }
+    },
+    {
+      "nome": "Arconte Psíquico",
+      "descricao": "Mestre da mente que usa poderes psiônicos latentes, talvez despertos ou ampliados por tecnologia Precursora ou exposição ao Éter, para atacar, defender e controlar mentes inimigas. Ranged DPS/Controle/Debuff.",
+      "aparencia": "Geralmente sem armadura pesada. Podem ter cristais psiônicos como foco, implantes cranianos sutis, ou simplesmente um olhar intenso. Suas manifestações psíquicas podem ser visíveis como auras coloridas ou distorções no ar.",
+      "personalidade": "Calmo e controlado, ou emocionalmente volátil (se os poderes forem instáveis). Pode ser introspectivo, manipulador ou empático ao extremo.",
+      "motivacao": "Entender a natureza da consciência, proteger os outros de manipulação mental, buscar poder sobre as mentes alheias, controlar seus próprios poderes.",
+      "lore": "Indivíduos com habilidades psíquicas naturais raras, talvez descendentes distantes de experimentos Precursores, ou pessoas alteradas por eventos relacionados ao Éter ou tecnologia psiônica. Podem ser temidos ou reverenciados.",
+      "atributos_iniciais": {
+        "INT": 15,
+        "CON": 14,
+        "SAB": 13,
+        "CAR": 12,
+        "DES": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d6",
+        "pv_inicial": "6 + Mod CON",
+        "pm_inicial": "15 + Mod INT",
+        "pm_por_nivel": "8 + Mod INT"
+      },
+      "proficiencias": {
+        "armaduras": "Nenhuma armadura ou escudo",
+        "armas": "Adagas, Cajados Leves",
+        "saves": ["INT", "SAB"]
+      },
+      "armas": {
+        "permitidas": ["Foco Psiônico (Cristal, Diadema)", "Adagas", "Cajados Leves"],
+        "proibidas": ["Armaduras", "Escudos", "Armas Marciais"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Explosão Mental",
+          "tipo": "Ação",
+          "custo": "2 PM",
+          "efeito": "Ataque à distância (Save de INT vs CD do Arconte). Alcance 18m. Falha: 1d8 + Mod INT dano psíquico. Sucesso: Metade do dano."
+        },
+        {
+          "nome": "Escudo Telecinético",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Ganha +2 CA contra ataques à distância até o início do seu próximo turno."
+        },
+        {
+          "nome": "Sussurros Insidiosos",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Alvo a até 9m faz Save de SAB (CD do Arconte). Falha: Alvo tem desvantagem na próxima rolagem de ataque ou teste de habilidade que fizer antes do fim do seu próximo turno."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Dominação Mental",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Alvo a até 18m faz Save de SAB (CD do Arconte) com desvantagem. Falha: O alvo fica sob seu controle mental por 1 minuto (segue comandos telepáticos simples, não pode se suicidar). O alvo pode repetir o Save no final de cada um de seus turnos para terminar o efeito. Sucesso: Alvo sofre 4d8 dano psíquico."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Mente Fortificada",
+          "efeito": "Vantagem em Saves contra efeitos psíquicos e de medo."
+        },
+        {
+          "nome": "Leitura Superficial",
+          "efeito": "Pode tentar ler pensamentos superficiais de um alvo (Ação, Save de SAB vs CD do Arconte) por 1 minuto (concentração)."
+        },
+        {
+          "nome": "Empurrão Telecinético",
+          "efeito": "Aprende a empurrar/puxar objetos ou criaturas pequenas (até 4,5m) como Ação."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Explosão Mental": ["Aumentar dano (+1d8 por ponto)", "Adicionar efeito secundário (atordoar por 1 rodada em falha crítica no Save)"],
+        "Escudo Telecinético": ["Aumentar bônus de CA", "Fazer funcionar contra corpo a corpo também"],
+        "Sussurros Insidiosos": ["Aumentar duração", "Impor penalidade mais severa (ex: não poder usar reações)"],
+        "Dominação Mental": ["Aumentar duração", "Tornar o Save mais difícil (impor desvantagem inicial)", "Afetar mais alvos (com custo maior?)"]
+      }
+    },
+    {
+      "nome": "Engenheiro de Relíquias",
+      "descricao": "Mestre da improvisação e da engenharia reversa, capaz de consertar, modificar e construir dispositivos tecnológicos, muitas vezes usando sucata Precursora e conhecimento prático. Suporte/Utilidade/Skill Monkey.",
+      "aparencia": "Roupas práticas e resistentes, cheias de bolsos e ferramentas. Óculos de proteção, luvas reforçadas. Pode ter um braço mecânico auxiliar ou um drone de ferramentas flutuando perto.",
+      "personalidade": "Pragmático, curioso, solucionador de problemas, talvez um pouco excêntrico ou obcecado com mecanismos. Gosta de desmontar e remontar coisas.",
+      "motivacao": "Entender como as coisas funcionam (especialmente tecnologia Precursora), criar invenções úteis ou poderosas, sobreviver usando sua inteligência e habilidade manual.",
+      "lore": "Sucateiros que se tornaram inventores, acadêmicos que preferem trabalho de campo, ou membros de guildas de artesãos que se especializaram em tecnologia antiga. Essenciais para manter equipamentos funcionando em Eryndor.",
+      "atributos_iniciais": {
+        "INT": 15,
+        "DES": 14,
+        "CON": 13,
+        "SAB": 12,
+        "FOR": 10,
+        "CAR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d8",
+        "pv_inicial": "8 + Mod CON",
+        "pm_inicial": "10 + Mod INT",
+        "pm_por_nivel": "5 + Mod INT"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves e Médias",
+        "armas": "Armas Simples, Pistolas Laser, Chaves Inglesas Tecnológicas, Kits de Ferramentas de Engenheiro, Kits de Arrombamento Tecnológico",
+        "saves": ["DES", "INT"]
+      },
+      "armas": {
+        "permitidas": ["Pistolas Laser/Plasma", "Carabinas de Energia", "Chave Inglesa/Martelo Pesado Tecnológico", "Bestas que disparam projéteis energéticos/elementais", "Granadas caseiras"],
+        "proibidas": ["Armas Marciais que exigem força bruta", "Armaduras Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Conserto Rápido",
+          "tipo": "Ação",
+          "custo": "2 PM + Materiais",
+          "efeito": "Toca um construto ou objeto tecnológico danificado. Restaura 1d8 + Mod INT PV ao objeto. Pode remover uma condição de 'danificado' temporariamente."
+        },
+        {
+          "nome": "Torreta Improvisada",
+          "tipo": "Ação",
+          "custo": "5 PM + Sucata (1 min para montar fora de combate, ou 1 Ação se tiver peças prontas)",
+          "efeito": "Cria uma pequena torreta estacionária (CA 10, 10 PV) que dura 1 minuto. Como Ação Bônus, você pode comandá-la a atacar um alvo a até 12m (Rolagem +INT vs CA, 1d6 dano perfurante/energético). Só pode ter uma ativa."
+        },
+        {
+          "nome": "Analisar Ponto Fraco",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Escolhe um construto ou alvo com tecnologia visível a até 9m. Faz um teste de INT (CD 12 ou CA do alvo). Sucesso: O próximo ataque contra esse alvo antes do fim do seu próximo turno tem Vantagem e causa +1d6 dano extra se acertar."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Sobrecarga de Sistema",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Escolhe um dispositivo tecnológico ou construto a até 18m. Alvo faz Save de CON (CD do Engenheiro). Falha: Sofre 8d6 dano elétrico/energético e fica Atordoado por 1 minuto (pode repetir Save no fim do turno). Sucesso: Metade do dano, sem atordoamento. Pode afetar área se direcionado a um console de controle (ex: raio de 3m)."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Mestre da Sucata",
+          "efeito": "Pode encontrar materiais de conserto/construção mais facilmente (Vantagem em testes para procurar sucata útil)."
+        },
+        {
+          "nome": "Melhorias de Torreta",
+          "efeito": "Torreta ganha +5 PV e +1 no ataque/dano."
+        },
+        {
+          "nome": "Interface Neural Básica",
+          "efeito": "Ganha proficiência em uma perícia de INT ou SAB adicional."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Conserto Rápido": ["Aumentar cura (+1d8 por ponto)", "Permitir consertar construtos aliados em combate mais eficientemente"],
+        "Torreta Improvisada": ["Aumentar dano/resistência da torreta", "Permitir ter duas ativas (custo maior?)"],
+        "Analisar Ponto Fraco": ["Aumentar dano extra", "Permitir que um aliado ganhe o benefício"],
+        "Sobrecarga de Sistema": ["Aumentar dano", "Aumentar CD do Save", "Fazer o atordoamento durar mais ou ser mais difícil de remover"]
+      }
+    },
+    {
+      "nome": "Gladiador Cromado",
+      "descricao": "Um combatente brutal que substituiu partes do corpo por aprimoramentos cibernéticos, focando em força bruta, resistência e poder de combate corpo a corpo implacável. Melee DPS/Tank Secundário.",
+      "aparencia": "Corpo visivelmente modificado com metal, pistões, cabos. Pode ter braços ou pernas cibernéticas, olhos ópticos, placas de blindagem subcutâneas. Muitas vezes exibe suas modificações.",
+      "personalidade": "Agressivo, direto, orgulhoso de sua força e resistência. Pode ser leal a companheiros de batalha, mas impaciente com fraqueza ou hesitação. Gosta de testar seus limites.",
+      "motivacao": "Ser o mais forte, a emoção da batalha, sobreviver a qualquer custo, talvez buscar peças melhores para si mesmo.",
+      "lore": "Podem ser lutadores de arenas ilegais, resultados de programas militares de super-soldados (talvez descartados), ou indivíduos que recorreram a modificações extremas para sobreviver em ambientes hostis ou após ferimentos graves.",
+      "atributos_iniciais": {
+        "FOR": 15,
+        "CON": 14,
+        "DES": 12,
+        "CAR": 10,
+        "SAB": 10,
+        "INT": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d12",
+        "pv_inicial": "12 + Mod CON",
+        "pm_inicial": "8 + Mod CON",
+        "pm_por_nivel": "4 + Mod CON"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves e Médias",
+        "armas": "Armas Simples e Marciais",
+        "saves": ["FOR", "CON"]
+      },
+      "armas": {
+        "permitidas": ["Machados/Espadas Grandes (com modificações)", "Martelos de Impacto", "Manoplas de Força", "Braços Cibernéticos com Armas Integradas (lâminas, garras)"],
+        "proibidas": ["Armas que exigem sutileza", "Armaduras Pesadas (já são 'blindados')"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Punho Pistão",
+          "tipo": "Ação",
+          "custo": "2 PM",
+          "efeito": "Faz um ataque corpo a corpo com um membro cibernético ou arma pesada. Se acertar, causa +1d8 de dano de concussão e o alvo deve fazer Save de FOR (CD Baseada em FOR) ou ser derrubado (Caído)."
+        },
+        {
+          "nome": "Duro de Matar",
+          "tipo": "Reação",
+          "custo": "3 PM",
+          "efeito": "Quando sofre dano que o reduziria a 0 PV, pode usar sua reação para cair a 1 PV em vez disso. (Usos limitados: ex, Mod CON por Descanso Longo)."
+        },
+        {
+          "nome": "Investida Implacável",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Move-se até sua velocidade em linha reta e faz um ataque corpo a corpo com Vantagem. Se acertar, causa +1d6 de dano extra."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Fúria Cibernética",
+        "tipo": "Ação Bônus",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Por 1 minuto, você entra em estado de fúria. Ganha Resistência a dano físico, Vantagem em Saves de FOR, e seus ataques corpo a corpo causam +1d8 de dano extra. Você não pode usar habilidades que exigem concentração ou muita precisão."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Blindagem Integrada",
+          "efeito": "Sua CA base (sem armadura) aumenta em +1."
+        },
+        {
+          "nome": "Sensor de Combate",
+          "efeito": "Vantagem em rolagens de Iniciativa."
+        },
+        {
+          "nome": "Ameaçador",
+          "efeito": "Ganha proficiência em Intimidação. Pode usar FOR para Intimidar."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Punho Pistão": ["Aumentar dano (+1d8 por ponto)", "Aumentar CD do Save"],
+        "Duro de Matar": ["Ganhar mais usos", "Talvez curar um pouco ao usar"],
+        "Investida Implacável": ["Aumentar dano extra", "Permitir atravessar inimigos pequenos"],
+        "Fúria Cibernética": ["Aumentar bônus de dano", "Ganhar resistências adicionais (fogo?)", "Regenerar PV por turno"]
+      }
+    },
+    {
+      "nome": "Oráculo Quântico",
+      "descricao": "Um vidente que perscruta os fluxos de dados, as probabilidades e os ecos do tempo através de interfaces tecnológicas ou habilidades psiônicas focadas. Oferece suporte através de buffs, debuffs e controle de informações. Suporte/Controle/Utilidade.",
+      "aparencia": "Pode usar vestes com padrões de circuitos que mudam sutilmente, óculos de realidade aumentada que mostram fluxos de dados, ou ter implantes que se conectam a redes de informação (ou ao próprio tecido da realidade). Foco pode ser um deck de cartas de dados ou um cristal flutuante.",
+      "personalidade": "Enigmático, calmo, fala em probabilidades ou metáforas de dados. Pode parecer distante ou saber mais do que revela. Busca padrões e conexões.",
+      "motivacao": "Compreender o fluxo do destino/informação, guiar outros através de futuros prováveis, prevenir catástrofes previstas, encontrar a 'verdade' nos dados.",
+      "lore": "Podem ser tecnosacerdotes que interpretam dados como presságios, psíquicos especializados em precognição auxiliada por tecnologia, ou IAs fragmentadas (como Iraxa) que desenvolveram uma forma de consciência preditiva.",
+      "atributos_iniciais": {
+        "SAB": 15,
+        "INT": 14,
+        "CON": 13,
+        "CAR": 12,
+        "DES": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d6",
+        "pv_inicial": "6 + Mod CON",
+        "pm_inicial": "14 + Mod SAB",
+        "pm_por_nivel": "7 + Mod SAB"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves",
+        "armas": "Armas Simples, Ferramentas de Análise de Dados",
+        "saves": ["INT", "SAB"]
+      },
+      "armas": {
+        "permitidas": ["Cajados de Interface", "Orbes de Dados", "Pistolas de Dardos (com payloads de dados/nanites)", "Adagas Cerimoniais Tecnológicas"],
+        "proibidas": ["Armaduras Médias/Pesadas", "Escudos", "Armas Marciais Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Vislumbre Precognitivo",
+          "tipo": "Ação Bônus",
+          "custo": "2 PM",
+          "efeito": "Escolhe uma criatura (você ou aliado) a até 9m. A criatura ganha Vantagem na próxima rolagem de ataque, teste de habilidade ou Save que fizer antes do início do seu próximo turno."
+        },
+        {
+          "nome": "Maldição da Incerteza",
+          "tipo": "Ação",
+          "custo": "3 PM",
+          "efeito": "Alvo a até 18m faz Save de SAB (CD do Oráculo). Falha: O alvo tem Desvantagem em todas as rolagens de ataque até o fim do seu próximo turno."
+        },
+        {
+          "nome": "Análise de Probabilidade",
+          "tipo": "Reação",
+          "custo": "4 PM",
+          "efeito": "Quando um inimigo a até 9m faz uma rolagem de ataque, você pode impor Desvantagem nessa rolagem."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Reescrever Linha Temporal Local",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Escolhe um evento que acabou de acontecer no último turno (um ataque, um Save falho, etc.) envolvendo você ou um aliado a até 18m. Force a criatura que fez a rolagem original a rerrolar o d20. Ela deve usar o novo resultado."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Olho que Tudo Vê (Dados)",
+          "efeito": "Vantagem em testes de Percepção e Investigação relacionados a tecnologia ou fluxos de energia."
+        },
+        {
+          "nome": "Bênção da Fortuna",
+          "efeito": "Pode usar Vislumbre Precognitivo 1 vez por Descanso Curto sem custo de PM."
+        },
+        {
+          "nome": "Acesso à Rede (Limitado)",
+          "efeito": "Pode tentar acessar sistemas de informação locais (Inteligência CD variável) para obter dados básicos."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Vislumbre Precognitivo": ["Permitir usar como Reação", "Aumentar duração para 2 rolagens"],
+        "Maldição da Incerteza": ["Afetar Saves também", "Aumentar duração"],
+        "Análise de Probabilidade": ["Aumentar alcance", "Talvez dar um bônus negativo (-1d4?) em vez de desvantagem"],
+        "Reescrever Linha Temporal": ["Permitir afetar inimigos (forçar rerrolagem de um sucesso deles)", "Talvez poder usar mais de uma vez por descanso (custo maior?)"]
+      }
+    },
+    {
+      "nome": "Arauto Sônico",
+      "descricao": "Um artista marcial ou músico que canaliza e amplifica ondas sônicas através de tecnologia ressonante, criando efeitos devastadores, inspirando aliados ou debilitando inimigos. Suporte/Debuff/Dano AoE.",
+      "aparencia": "Roupas vibrantes ou trajes com ressonadores sônicos integrados. Pode usar luvas que emitem pulsos, instrumentos musicais modificados (guitarras laser, flautas sônicas) ou simplesmente amplificadores vocais.",
+      "personalidade": "Expressivo, carismático, talvez um pouco exibicionista. Acredita no poder do som (ou da performance) para mudar o mundo (ou pelo menos a batalha).",
+      "motivacao": "Inspirar esperança, trazer harmonia (ou cacofonia controlada), ser ouvido, proteger a cultura ou a liberdade de expressão.",
+      "lore": "Podem ser bardos que adaptaram sua arte à tecnologia, técnicos de som que descobriram aplicações bélicas, ou membros de culturas que usam o som ritualisticamente e o aprimoraram com descobertas Precursoras.",
+      "atributos_iniciais": {
+        "CAR": 15,
+        "DES": 14,
+        "CON": 13,
+        "INT": 12,
+        "SAB": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d8",
+        "pv_inicial": "8 + Mod CON",
+        "pm_inicial": "14 + Mod CAR",
+        "pm_por_nivel": "7 + Mod CAR"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves",
+        "armas": "Armas Simples, Espadas Curtas, Chicotes Sônicos, Instrumentos Modificados, Uma ferramenta de artesão (Instrumento Musical), Performance",
+        "saves": ["DES", "CAR"]
+      },
+      "armas": {
+        "permitidas": ["Amplificadores Vocais (Foco)", "Luvas Ressonantes", "Instrumentos Musicais Tecnológicos (Guitarras de Energia, Flautas Sônicas)", "Chicotes Sônicos", "Espadas Curtas"],
+        "proibidas": ["Armaduras Médias/Pesadas", "Escudos", "Armas Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Onda de Choque Ressonante",
+          "tipo": "Ação",
+          "custo": "3 PM",
+          "efeito": "Emite um cone de 5m de som. Inimigos na área fazem Save de CON (CD do Arauto). Falha: 1d8 dano sônico (trovão) e ficam Surdos por 1 minuto. Sucesso: Metade do dano, sem surdez."
+        },
+        {
+          "nome": "Hino Inspirador",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Escolhe um aliado (pode ser você) a até 18m que possa ouvi-lo. O alvo ganha 1d6 + Mod CAR de Pontos de Vida Temporários e Vantagem na próxima rolagem de ataque que fizer antes do fim do seu próximo turno."
+        },
+        {
+          "nome": "Feedback Desorientador",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Alvo a até 9m que possa ouvi-lo faz Save de SAB (CD do Arauto). Falha: Alvo fica Atordoado até o final do seu próximo turno devido a uma cacofonia ensurdecedora direcionada."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Crescendo Devastador",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Libera uma onda massiva de som num raio de 9m centrado em você. Aliados na área recuperam 3d8 PV. Inimigos na área fazem Save de CON (CD do Arauto). Falha: Sofrem 6d8 dano sônico e ficam Atordoados por 1 minuto (podem repetir Save no fim do turno). Sucesso: Metade do dano, sem atordoamento."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Mestre da Acústica",
+          "efeito": "O alcance/área de suas habilidades sônicas aumenta em 50%."
+        },
+        {
+          "nome": "Harmonia Protetora",
+          "efeito": "Aliados afetados por Hino Inspirador também ganham +1 CA até o início do seu próximo turno."
+        },
+        {
+          "nome": "Palavras Cortantes (Tecno)",
+          "efeito": "Pode usar sua Reação para impor 1d6 de penalidade psíquica/sônica a uma rolagem de ataque de um inimigo que você possa ver e ouvir (Usos = Mod CAR por Descanso Longo)."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Onda de Choque": ["Aumentar dano (+1d8 por ponto)", "Aumentar área do cone", "Adicionar efeito de empurrar"],
+        "Hino Inspirador": ["Aumentar PV temporários (+1d6 por ponto)", "Afetar mais alvos"],
+        "Feedback Desorientador": ["Aumentar duração do atordoamento", "Alvo também fica Surdo"],
+        "Crescendo Devastador": ["Aumentar dano/cura", "Aumentar raio", "Inimigos que falham também são derrubados"]
+      }
+    },
+    {
+      "nome": "Rastreador de Circuitos",
+      "descricao": "Um caçador e sobrevivente que utiliza tecnologia avançada para rastrear presas (orgânicas ou mecânicas), montar armadilhas e eliminar alvos à distância com precisão letal. Ranged DPS/Utilidade/Armadilhas.",
+      "aparencia": "Roupas de camuflagem adaptativa ou trajes de couro reforçado com tecnologia. Óculos com múltiplos modos de visão, luvas com ferramentas de rastreamento, um drone de reconhecimento pairando no ombro. Carrega um rifle de precisão ou uma besta tecnológica avançada.",
+      "personalidade": "Focado, paciente, observador, prefere a solidão ou a companhia de poucos. Conhece bem o ambiente (natural ou urbano/industrial) e como se mover nele sem ser detectado.",
+      "motivacao": "Proteger um território ou segredo, caçar uma presa específica (por vingança ou contrato), a emoção da caçada tecnológica, sobreviver nos ermos (sejam florestas ou ruínas).",
+      "lore": "Podem ser guardas de fronteira de reinos avançados, caçadores de recompensas especializados em alvos tecnológicos, sobreviventes de terras devastadas que usam tecnologia para caçar, ou protetores de enclaves naturais contra a invasão de máquinas.",
+      "atributos_iniciais": {
+        "DES": 15,
+        "SAB": 14,
+        "INT": 13,
+        "CON": 12,
+        "FOR": 10,
+        "CAR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d10",
+        "pv_inicial": "10 + Mod CON",
+        "pm_inicial": "10 + Mod INT",
+        "pm_por_nivel": "5 + Mod INT"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves e Médias, Escudos",
+        "armas": "Armas Simples e Marciais (com foco em armas à distância), Kits de Sobrevivência Tecnológica, Armadilhas Tecnológicas",
+        "saves": ["DES", "SAB"]
+      },
+      "armas": {
+        "permitidas": ["Rifles de Precisão (Laser, Gauss, Balístico)", "Bestas Tecnológicas (com virotes especiais: EMP, choque, explosivo)", "Pistolas de Longo Alcance", "Facas de Combate/Sobrevivência"],
+        "proibidas": ["Armas Pesadas de Duas Mãos (exceto rifles)", "Armaduras Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Tiro Marcador",
+          "tipo": "Ação Bônus",
+          "custo": "2 PM",
+          "efeito": "Faz um ataque à distância contra um alvo. Se acertar, o alvo fica 'marcado' por 1 minuto. Seus ataques contra o alvo marcado causam +1d4 de dano extra, e você tem Vantagem em testes de Sabedoria (Sobrevivência) para rastreá-lo. Só pode ter um alvo marcado por vez."
+        },
+        {
+          "nome": "Armadilha de Stasis",
+          "tipo": "Ação",
+          "custo": "4 PM + Componentes (1 min para montar, ou Ação se tiver kit pronto)",
+          "efeito": "Coloca uma armadilha tecnológica escondida (Percepção CD do Rastreador para detectar). A primeira criatura a pisar nela deve fazer Save de DES (CD do Rastreador). Falha: Fica Paralisada por 1 minuto ou até sofrer dano. A armadilha ocupa um espaço de 1,5m."
+        },
+        {
+          "nome": "Drone Batedor",
+          "tipo": "Ação",
+          "custo": "5 PM",
+          "efeito": "Lança um pequeno drone furtivo (CA 13, 10 PV, movimento voo 12m, Furtividade +5) por 10 minutos. Você pode usar sua Ação Bônus para movê-lo e sua Ação para ver/ouvir através dele. Ele pode transmitir dados de alvos (concede Vantagem no próximo ataque contra um alvo que ele esteja observando)."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Disparo Perfeito",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Curto/Longo",
+        "efeito": "Requer arma à distância. Você mira cuidadosamente em um ponto vital ou componente crítico. Faz um ataque à distância com Vantagem. Se acertar, é um Acerto Crítico automático e causa +4d10 de dano extra. Se o alvo for um construto, ele pode ter um componente essencial desativado (ex: arma, movimento) à escolha do Mestre."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Mestre das Armadilhas",
+          "efeito": "Pode colocar +1 armadilha ativa. A CD para detectar/resistir às suas armadilhas aumenta em +1."
+        },
+        {
+          "nome": "Camuflagem Adaptativa",
+          "efeito": "Vantagem em testes de Furtividade em ambiente natural ou urbano/industrial."
+        },
+        {
+          "nome": "Visão de Predador",
+          "efeito": "Ganha Visão no Escuro até 18m ou aumenta a existente em +9m. Pode distinguir assinaturas de calor fracas."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Tiro Marcador": ["Aumentar dano extra (+1d4 por ponto)", "Marca dura mais tempo ou pode marcar mais alvos"],
+        "Armadilha de Stasis": ["Aumentar duração da paralisia", "Armadilha causa dano elétrico ao ativar"],
+        "Drone Batedor": ["Drone fica mais resistente/furtivo", "Ganha outras funções (pulso EMP pequeno, marcador laser)"],
+        "Disparo Perfeito": ["Aumentar dano extra (+2d10 por ponto)", "Talvez possa mirar em múltiplos alvos (com penalidade?)"]
+      }
+    },
+    {
+      "nome": "Templário da Singularidade",
+      "descricao": "Um guerreiro devoto que combina fé (em um poder superior, uma IA divina, ou a própria ordem cósmica) com tecnologia avançada, usando armas de energia e escudos protetores para defender seus ideais e destruir os inimigos da 'verdade'. Melee/Suporte/Tank Secundário.",
+      "aparencia": "Armadura ornamentada que mistura placas metálicas com circuitos luminosos e símbolos sagrados/tecnológicos. Elmos com visores brilhantes. Carrega espadas ou martelos de energia e escudos que projetam campos de força com padrões geométricos.",
+      "personalidade": "Fervoroso, disciplinado, incorruptível (ou pelo menos acredita ser). Possui forte convicção em sua causa. Pode ser protetor com os 'fiéis' e implacável com os 'hereges' (corrompidos pelo Éter, cultistas sombrios).",
+      "motivacao": "Servir a um poder maior (divindade, IA, ideal), proteger relíquias sagradas/tecnológicas, trazer ordem e luz (conforme sua interpretação) ao mundo, expurgar a corrupção.",
+      "lore": "Podem ser membros de ordens religiosas que abraçaram a tecnologia como uma dádiva ou ferramenta divina, cavaleiros jurados a proteger IAs benevolentes consideradas sagradas, ou guerreiros que encontraram iluminação na ordem matemática do universo revelada pela tecnologia Precursora.",
+      "atributos_iniciais": {
+        "SAB": 15,
+        "FOR": 14,
+        "CON": 13,
+        "CAR": 12,
+        "INT": 10,
+        "DES": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d10",
+        "pv_inicial": "10 + Mod CON",
+        "pm_inicial": "12 + Mod SAB",
+        "pm_por_nivel": "6 + Mod SAB"
+      },
+      "proficiencias": {
+        "armaduras": "Todas as armaduras e escudos",
+        "armas": "Armas Simples e Marciais",
+        "saves": ["SAB", "CAR"]
+      },
+      "armas": {
+        "permitidas": ["Espadas de Energia", "Martelos de Guerra Sônicos/Energéticos", "Lanças de Plasma", "Escudos de Força Projetada"],
+        "proibidas": ["Armas que pareçam caóticas ou puramente 'profanas' (armas de Éter bruto?)"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Golpe Purificador",
+          "tipo": "Ação",
+          "custo": "2 PM",
+          "efeito": "Faz um ataque corpo a corpo com arma. Se acertar, causa +1d8 de dano radiante (ou similar 'sagrado/ordenado') e o alvo não pode recuperar PV até o início do seu próximo turno."
+        },
+        {
+          "nome": "Escudo da Fé (Tecno)",
+          "tipo": "Ação Bônus",
+          "custo": "3 PM",
+          "efeito": "Escolhe uma criatura (pode ser você) a até 9m. O alvo ganha +2 CA até o início do seu próximo turno, emitindo um leve brilho protetor."
+        },
+        {
+          "nome": "Repreender o Profano",
+          "tipo": "Ação",
+          "custo": "5 PM",
+          "efeito": "Apresenta seu símbolo sagrado/tecnológico. Cada criatura corrompida pelo Éter ou construto hostil a até 9m que possa vê-lo ou ouvi-lo deve fazer um Save de SAB (CD do Templário). Falha: Fica Assustado por 1 minuto e deve usar sua ação para tentar fugir. Sucesso: Sem efeito."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Avatar da Ordem Divina/Cósmica",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Por 1 minuto, você é envolto em energia pura. Ganha Resistência a dano necrótico e psíquico, emite luz plena em 6m (penumbra +6m), e seus ataques com arma causam +1d10 de dano radiante extra. Inimigos que começam o turno perto de você (1,5m) sofrem 1d10 dano radiante."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Aura de Proteção",
+          "efeito": "Aliados a 1,5m de você ganham +1 em todos os Saves."
+        },
+        {
+          "nome": "Servo Leal (Drone)",
+          "efeito": "Ganha um pequeno drone auxiliar (não de combate) que pode carregar itens leves, iluminar, ou transmitir mensagens curtas."
+        },
+        {
+          "nome": "Presença Divina",
+          "efeito": "Ganha proficiência em Persuasão ou Intimidação."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Golpe Purificador": ["Aumentar dano (+1d8 por ponto)", "Efeito dura mais"],
+        "Escudo da Fé": ["Aumentar bônus de CA", "Aumentar alcance ou afetar mais alvos"],
+        "Repreender o Profano": ["Aumentar alcance", "Afetar outros tipos de inimigos (mortos-vivos tecnológicos?)", "Causar dano aos que falham"],
+        "Avatar da Ordem": ["Aumentar bônus de dano", "Ganhar mais resistências (energia?)", "Aura de dano fica mais forte/maior"]
+      }
+    },
+    {
+      "nome": "Berserker Anômalo",
+      "descricao": "Um guerreiro selvagem cuja fúria é alimentada ou resulta de mutações instáveis causadas por exposição ao Éter, tecnologia experimental falha ou implantes biônicos defeituosos. Quanto mais luta, mais perigoso e imprevisível se torna. Melee DPS/Tank Volátil.",
+      "aparencia": "Aparência bruta e intimidante. Cicatrizes, implantes grosseiros, veias pulsando com energia estranha (especialmente em fúria). Armadura improvisada ou partes do corpo que se tornam quitinosas/metálicas durante a fúria. Armas grandes e brutais.",
+      "personalidade": "Impulsivo, raivoso, volátil. Protege ferozmente o que considera seu. Pode ter momentos de lucidez, mas a fúria está sempre sob a superfície. Desconfia de controle e sutileza.",
+      "motivacao": "Sobrevivência, libertar sua raiva, proteger seu bando/tribo, encontrar uma cura (ou mais poder) para sua condição.",
+      "lore": "Podem ser 'efeitos colaterais' de experimentos como os de Korvax, guerreiros tribais que tiveram contato bruto com o Éter ou tecnologia Precursora instável, ou gladiadores que usam 'drogas' de combate mutagênicas. Sua condição é tanto uma bênção quanto uma maldição.",
+      "atributos_iniciais": {
+        "CON": 15,
+        "FOR": 14,
+        "DES": 13,
+        "SAB": 12,
+        "CAR": 10,
+        "INT": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d12",
+        "pv_inicial": "12 + Mod CON",
+        "pm_inicial": "10 + Mod CON",
+        "pm_por_nivel": "5 + Mod CON"
+      },
+      "proficiencias": {
+        "armaduras": "Armaduras Leves e Médias, Escudos",
+        "armas": "Armas Simples e Marciais",
+        "saves": ["FOR", "CON"]
+      },
+      "armas": {
+        "permitidas": ["Machados Grandes (com modificações instáveis)", "Espadas Pesadas Serrilhadas", "Martelos de Impacto", "Garras Implantadas", "Armas Improvisadas Pesadas (vigas, etc.)"],
+        "proibidas": ["Armas delicadas", "Armaduras Pesadas (interferem na mutação?)"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Fúria Mutagênica",
+          "tipo": "Ação Bônus",
+          "custo": "2 PM para ativar, 1 PM por turno para manter",
+          "efeito": "Entra em fúria por até 1 minuto. Ganha Vantagem em testes de FOR e Saves de FOR, +2 de dano em ataques corpo a corpo com FOR, e Resistência a dano físico. Não pode conjurar magias ou se concentrar em tarefas complexas. No início de cada turno em fúria (após o primeiro), rola 1d6 em uma Tabela de Mutação Aleatória (Mestre cria: ex: garras crescem (+1d4 dano desarmado), pele endurece (+1 CA), espinhos surgem (dano a quem atacar corpo a corpo), velocidade aumenta, etc.)."
+        },
+        {
+          "nome": "Ataque Descuidado",
+          "tipo": "Ação",
+          "custo": "Nenhum (mas só em Fúria)",
+          "efeito": "Faz um ataque corpo a corpo com Vantagem, mas ataques contra você têm Vantagem até o início do seu próximo turno."
+        },
+        {
+          "nome": "Resistência Indomável",
+          "tipo": "Passivo",
+          "custo": "Nenhum",
+          "efeito": "Se um efeito permitir um Save de CON para sofrer apenas metade do dano, você não sofre dano algum se passar no Save, e apenas metade se falhar."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Tempestade de Mutações",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Só pode usar em Fúria. Você explode em um ápice de mutação caótica por 1 minuto. Rola três vezes na Tabela de Mutação Aleatória (efeitos acumulam). Seus ataques corpo a corpo causam +1d10 de dano extra (ácido, elétrico ou força - aleatório a cada ataque). No final da duração, sofre 2 níveis de Exaustão."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Fúria Prolongada",
+          "efeito": "Sua Fúria Mutagênica pode durar mais (ex: + Mod CON turnos)."
+        },
+        {
+          "nome": "Intimidador Mutante",
+          "efeito": "Ganha proficiência em Intimidação. Vantagem ao intimidar enquanto visivelmente mutado/em fúria."
+        },
+        {
+          "nome": "Regeneração Instável",
+          "efeito": "Enquanto em fúria e abaixo da metade dos PV, recupera 1 PV no início de cada turno."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Fúria Mutagênica": ["Aumentar bônus de dano", "Adicionar mais opções/melhores opções à Tabela de Mutação"],
+        "Ataque Descuidado": ["Talvez permitir usar fora de fúria (com custo?)"],
+        "Resistência Indomável": ["Talvez funcione com outros Saves (DES?)"],
+        "Tempestade de Mutações": ["Rolar mais vezes na tabela", "Aumentar bônus de dano", "Reduzir penalidade de Exaustão"]
+      }
+    },
+    {
+      "nome": "Geomante Gravitacional",
+      "descricao": "Um conjurador ou tecnomante que se especializou na manipulação de campos gravitacionais e de força, usando tecnologia Precursora ou poderes psiônicos focados para controlar o campo de batalha, proteger aliados e esmagar inimigos. Controle/Suporte/Dano Secundário.",
+      "aparencia": "Roupas com estabilizadores giroscópicos ou emissores de campo de força. Luvas ou manoplas que parecem distorcer o ar ao redor. Pode flutuar levemente acima do chão. Foco pode ser um giroscópio flutuante ou um cristal denso.",
+      "personalidade": "Calculista, ponderado, talvez com um senso de superioridade devido ao seu controle sobre uma força fundamental. Vê o campo de batalha como um problema de física a ser resolvido.",
+      "motivacao": "Compreender as leis fundamentais do universo, manter o equilíbrio (literalmente), proteger através do controle, alcançar o poder sobre a matéria.",
+      "lore": "Estudiosos que decifraram segredos Precursores sobre manipulação gravitacional, psíquicos com afinidade telecinética focada em gravidade, ou engenheiros que construíram dispositivos capazes de gerar campos de força e poços gravitacionais localizados.",
+      "atributos_iniciais": {
+        "INT": 15,
+        "CON": 14,
+        "SAB": 13,
+        "DES": 12,
+        "CAR": 10,
+        "STR": 8
+      },
+      "pv_pm": {
+        "dado_vida": "d6",
+        "pv_inicial": "6 + Mod CON",
+        "pm_inicial": "14 + Mod INT",
+        "pm_por_nivel": "7 + Mod INT"
+      },
+      "proficiencias": {
+        "armaduras": "Nenhuma armadura ou escudo",
+        "armas": "Adagas, Cajados, Pistolas Leves",
+        "saves": ["INT", "CON"]
+      },
+      "armas": {
+        "permitidas": ["Focos Gravitacionais (Orbes, Luvas)", "Cajados Estabilizadores", "Adagas de Matéria Densa", "Pistolas que disparam 'balas' gravitacionais"],
+        "proibidas": ["Armaduras", "Escudos", "Armas Marciais Pesadas"]
+      },
+      "habilidades_normais": [
+        {
+          "nome": "Pulso Gravitacional",
+          "tipo": "Ação",
+          "custo": "3 PM",
+          "efeito": "Escolhe um ponto a até 18m. Criaturas num raio de 3m fazem Save de FOR (CD do Geomante). Falha: São puxadas 3m em direção ao centro e sofrem 1d6 dano de concussão. Sucesso: Não são puxadas, metade do dano."
+        },
+        {
+          "nome": "Barreira de Força",
+          "tipo": "Ação",
+          "custo": "4 PM",
+          "efeito": "Cria uma parede transparente de energia de até 9m de comprimento e 3m de altura, ou uma cúpula de 3m de raio, a até 9m. A barreira tem CA 15, 25 PV e dura 1 minuto (concentração). Bloqueia ataques físicos e a maioria dos projéteis."
+        },
+        {
+          "nome": "Levitar Objeto/Criatura",
+          "tipo": "Ação",
+          "custo": "5 PM",
+          "efeito": "Alvo (objeto até 100kg ou criatura Média ou menor) a até 18m faz Save de FOR (CD do Geomante) se for criatura e não voluntário. Falha: Você levita o alvo até 6m do chão por 1 minuto (concentração). Pode mover o alvo 6m como Ação. Criaturas podem usar Ação para tentar novo Save."
+        }
+      ],
+      "habilidade_ultimate": {
+        "nome": "Poço Gravitacional",
+        "tipo": "Ação",
+        "custo": "15 PM",
+        "cooldown": "Descanso Longo",
+        "efeito": "Escolhe um ponto a até 30m. Cria uma esfera de 6m de raio de gravidade intensa por 1 minuto (concentração). A área é Terreno Difícil. Criaturas que entram ou começam o turno na área fazem Save de FOR (CD do Geomante). Falha: Sofrem 4d10 dano de concussão, ficam Impedidas (velocidade 0) e têm desvantagem em ataques e Saves de DES. Sucesso: Metade do dano, não ficam impedidas."
+      },
+      "talentos_exemplo_nivel_3": [
+        {
+          "nome": "Voo Controlado",
+          "efeito": "Gasta 2 PM por turno para ganhar velocidade de voo igual à sua velocidade de caminhada (requer concentração leve)."
+        },
+        {
+          "nome": "Barreira Reforçada",
+          "efeito": "Sua Barreira de Força tem +10 PV e CA 17."
+        },
+        {
+          "nome": "Manipulador Preciso",
+          "efeito": "Ganha proficiência com a perícia Prestidigitação (baseada em INT para manipulação fina telecinética/gravitacional)."
+        }
+      ],
+      "evolucoes_exemplo": {
+        "Pulso Gravitacional": ["Aumentar dano (+1d6 por ponto)", "Aumentar distância de puxão/empurrão (pode escolher a direção?)"],
+        "Barreira de Força": ["Aumentar tamanho/PV", "Fazer causar dano a quem atacar corpo a corpo"],
+        "Levitar": ["Afetar alvos maiores/mais pesados", "Mover mais rápido", "Talvez usar como arma (arremessar)"],
+        "Poço Gravitacional": ["Aumentar dano/raio", "Tornar o Save mais difícil", "Adicionar efeito de puxar criaturas próximas para dentro"]
+      }
+    }
+  ]
+}
