@@ -6,20 +6,23 @@
 <h2>{{ campanha.titulo }}</h2>
 <p>{{ campanha.descricao }}</p>
 
-<h3>Fichas nesta campanha:</h3>
-<ul>
-    {% for ficha in campanha.fichas %}
-        <li>
-            <a href="{{ url_for('main.ver_ficha', ficha_id=ficha.id) }}">
-                {{ ficha.nome_personagem }} - {{ ficha.classe }} (Nível {{ ficha.nivel }})
-            </a>
-        </li>
-    {% else %}
-        <li>Nenhuma ficha registrada ainda.</li>
-    {% endfor %}
-</ul>
-
-{% if campanha.mestre_id == current_user.id %}
+<!-- Se o usuário for mestre, mostra a opção de gerenciar -->
+{% if current_user.id == campanha.mestre_id %}
     <p><a href="{{ url_for('mestre.painel_mestre', campanha_id=campanha.id) }}">Acessar painel do mestre</a></p>
+{% else %}
+    <!-- Se o jogador tiver uma ficha, pode ver sua ficha -->
+    {% set ficha = None %}
+    {% for f in campanha.fichas %}
+        {% if f.jogador_id == current_user.id %}
+            {% set ficha = f %}
+        {% endif %}
+    {% endfor %}
+    {% if ficha %}
+        <p><a href="{{ url_for('main.ver_ficha', ficha_id=ficha.id) }}">Visualizar minha ficha</a></p>
+    {% else %}
+        <p>Você ainda não possui ficha nesta campanha.</p>
+    {% endif %}
 {% endif %}
+
+<!-- Outras informações da campanha -->
 {% endblock %}

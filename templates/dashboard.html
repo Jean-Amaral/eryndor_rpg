@@ -5,16 +5,29 @@
 {% block content %}
 <h2>Painel do Jogador</h2>
 
-<h3>Suas Campanhas (como Mestre)</h3>
+<h3>Campanhas onde você é Mestre</h3>
 <ul>
-    {% for campanha in campanhas %}
+    {% for campanha in campanhas_mestre %}
         <li>
-            <a href="{{ url_for('mestre.painel_mestre', campanha_id=campanha.id) }}">
+            <a href="{{ url_for('main.entrar_campanha', campanha_id=campanha.id) }}">
                 {{ campanha.titulo }}
             </a>
         </li>
     {% else %}
         <li>Você ainda não criou nenhuma campanha.</li>
+    {% endfor %}
+</ul>
+
+<h3>Campanhas onde você é Jogador</h3>
+<ul>
+    {% for campanha in campanhas_jogador %}
+        <li>
+            <a href="{{ url_for('main.entrar_campanha', campanha_id=campanha.id) }}">
+                {{ campanha.titulo }}
+            </a>
+        </li>
+    {% else %}
+        <li>Você não participou de nenhuma campanha ainda.</li>
     {% endfor %}
 </ul>
 
@@ -26,29 +39,4 @@
     <textarea name="descricao"></textarea><br>
     <button type="submit">Criar Campanha</button>
 </form>
-
-<hr>
-
-<h3>Suas Fichas (como Jogador)</h3>
-<ul>
-    {% for ficha in fichas %}
-        <li>
-            <a href="{{ url_for('main.ver_ficha', ficha_id=ficha.id) }}">
-                {{ ficha.nome_personagem }} (Nível {{ ficha.nivel }}) - {{ ficha.classe }}
-            </a>
-        </li>
-    {% else %}
-        <li>Você ainda não criou nenhuma ficha.</li>
-    {% endfor %}
-</ul>
-{% endblock %}
-
-{% block scripts %}
-<!-- Definições necessárias para integração com socket.js -->
-<script>
-    window.usuarioAtual = "{{ current_user.nome }}";
-    window.usuarioId = {{ current_user.id }};
-</script>
-
-<script src="{{ url_for('static', filename='js/socket.js') }}"></script>
 {% endblock %}

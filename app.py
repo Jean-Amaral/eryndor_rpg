@@ -20,10 +20,12 @@ from models import User, Campanha, Ficha, MoralityLog, HistoricoRolagem
 from routes.auth_routes import auth_bp
 from routes.main_routes import main_bp
 from routes.mestre_routes import mestre_bp
+from routes.hero_routes import hero_bp  # Para seleção de herói
 
 app.register_blueprint(auth_bp)
 app.register_blueprint(main_bp)
 app.register_blueprint(mestre_bp)
+app.register_blueprint(hero_bp)
 
 # Injeta a variável global 'now' para uso nos templates
 @app.context_processor
@@ -49,12 +51,14 @@ def handle_usuario_logado(data):
     if user_id is None or nome is None:
         print("[SocketIO] Erro: dados do usuário ausentes ao emitir usuario_logado.")
         return
-    # Converter user_id para string para garantir consistência
+    # Converte user_id para string para consistência com join_room
     user_id = str(user_id)
     online_users[sid] = {'user_id': user_id, 'nome': nome}
     join_room(user_id)
     print(f"[SocketIO] {nome} entrou online com user_id {user_id} e SID {sid}.")
+    # Envia confirmação para o próprio usuário
     emit('usuario_logado_confirmado', {'status': 'ok', 'room': user_id}, to=user_id)
+    # Atualiza a lista de usuários online para todos
     emit('usuarios_online', list(online_users.values()), broadcast=True)
 
 @socketio.on('disconnect')
@@ -68,15 +72,11 @@ def handle_disconnect():
 
 @socketio.on('roll')
 def handle_roll(data):
-    # Processa a rolagem
     result = roll_dice(data['expression'])
     result['jogador'] = data.get('user', 'Desconhecido')
     result['pericia'] = data.get('pericia', 'Livre')
-    
-    # Emite o resultado para todos
     emit('nova_rolagem', result, broadcast=True)
-    
-    # Salva o resultado no banco de dados (battle log)
+    # Salva o histórico de rolagens (battle log)
     try:
         new_log = HistoricoRolagem(
             jogador=result['jogador'],
@@ -88,10 +88,10 @@ def handle_roll(data):
         )
         db.session.add(new_log)
         db.session.commit()
-        print(f"[SocketIO] Histórico de rolagem salvo: {new_log.expressao} = {new_log.total}")
+        print(f"[SocketIO] Histórico salvo: {new_log.expressao} = {new_log.total}")
     except Exception as e:
         db.session.rollback()
-        print(f"[SocketIO] Erro ao salvar histórico de rolagem: {e}")
+        print(f"[SocketIO] Erro ao salvar histórico: {e}")
 
 @socketio.on('convidar_para_campanha')
 def handle_convite(data):
@@ -106,7 +106,7 @@ def handle_convite(data):
         'campanha_id': campanha_id,
         'mensagem': f"Voc\u00ea foi convidado para a campanha #{campanha_id}!"
     }, to=destino_id)
-    print(f"[SocketIO] Convite emitido para sala {destino_id} (sala = user_id).")
+    print(f"[SocketIO] Convite emitido para sala {destino_id}.")
 
 @socketio.on('aceitar_convite')
 def handle_aceitar_convite(data):
@@ -117,35 +117,15 @@ def handle_aceitar_convite(data):
         return
     user_id = str(user_id)
     print(f"[SocketIO] Usuário {user_id} aceitou convite para campanha #{campanha_id}.")
-    from models import Ficha  # Import local para evitar circularidade
+    from models import Ficha
     ficha_existente = Ficha.query.filter_by(jogador_id=user_id, campanha_id=campanha_id).first()
-    if not ficha_existente:
-        nova_ficha = Ficha(
-            nome_personagem="Novo Her\u00f3i",
-            classe="Classe Padr\u00e3o",
-            nivel=1,
-            raca="Desconhecida",
-            alinhamento="Neutro",
-            forca=10,
-            destreza=10,
-            constituicao=10,
-            inteligencia=10,
-            sabedoria=10,
-            carisma=10,
-            vida_maxima=10,
-            mana_maxima=10,
-            experiencia=0,
-            jogador_id=user_id,
-            campanha_id=campanha_id
-        )
-        db.session.add(nova_ficha)
-        db.session.commit()
-        print(f"[SocketIO] Ficha criada para usuário {user_id} na campanha {campanha_id}.")
+    if ficha_existente:
+        print(f"[SocketIO] Usuário {user_id} já possui ficha na campanha {campanha_id}.")
+        emit('convite_aceito', {'campanha_id': campanha_id, 'rota': 'ver_campanha'}, to=user_id)
     else:
-        print(f"[SocketIO] Usuário {user_id} j\u00e1 tem ficha na campanha {campanha_id}.")
-    emit('convite_aceito', {'campanha_id': campanha_id}, to=user_id)
+        print(f"[SocketIO] Nenhuma ficha encontrada para usuário {user_id} na campanha {campanha_id}. Encaminhando para seleção de herói.")
+        emit('convite_aceito', {'campanha_id': campanha_id, 'rota': 'selecionar_heroi'}, to=user_id)
 
-# Execu\u00e7\u00e3o da aplica\u00e7\u00e3o
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

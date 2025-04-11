@@ -46,12 +46,10 @@
 {% endblock %}
 
 {% block scripts %}
-<!-- Variáveis globais para SocketIO -->
 <script>
     window.usuarioAtual = "{{ current_user.nome }}";
-    window.usuarioId = {{ current_user.id }};
-    window.campanhaAtualId = {{ campanha.id }};
+    window.usuarioId = "{{ current_user.id }}";
+    window.campanhaAtualId = "{{ campanha.id }}";
 </script>
-
 <script src="{{ url_for('static', filename='js/socket.js') }}"></script>
 {% endblock %}

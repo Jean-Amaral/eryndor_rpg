@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Selecionar Herói{% endblock %}
+
+{% block content %}
+<h2>Selecionar Herói para a Campanha: {{ campanha.titulo }}</h2>
+<p>Escolha o herói que deseja usar nesta campanha:</p>
+
+<form method="POST" action="{{ url_for('hero.selecionar_heroi', campanha_id=campanha.id) }}">
+    <div class="lista-herois">
+        {% for heroi in herois %}
+            <div class="heroi-item">
+                <input type="radio" name="heroi_id" id="heroi-{{ heroi.id }}" value="{{ heroi.id }}">
+                <label for="heroi-{{ heroi.id }}">
+                    <h3>{{ heroi.nome }}</h3>
+                    <p>{{ heroi.descricao }}</p>
+                </label>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit">Confirmar Seleção</button>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<!-- Você pode incluir scripts adicionais se necessário -->
+{% endblock %}
